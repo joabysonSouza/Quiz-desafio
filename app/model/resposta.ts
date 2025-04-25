@@ -1,13 +1,24 @@
 export default class RespostaModel{
     #valor: string
     #certa: boolean
-    #revelada: boolean
+    #revelada?: boolean
 
-    constructor(valor: string, certa: boolean,revelada: boolean){
+    constructor(valor: string, certa: boolean,revelada?: boolean){
         this.#valor = valor
         this.#certa = certa
-        this.#revelada = revelada
+         this.#revelada = revelada
     }
+
+    static certa(valor: string){
+        return new RespostaModel(valor,true)
+
+    }
+
+    static errado(valor: string){
+        return new RespostaModel(valor,false)
+
+    }
+
 
     get valor(){
         return this.#valor
