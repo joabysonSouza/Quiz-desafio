@@ -42,7 +42,7 @@ export default class QuestaoModel {
     return false;
   }
 
-  embaralharespostas(): QuestaoModel {
+  embaralhaRespostas(): QuestaoModel {
     let respostasEmbaralhadas = embaralha(this.#respostas);
     return new QuestaoModel(
       this.#id,
@@ -50,6 +50,18 @@ export default class QuestaoModel {
       respostasEmbaralhadas,
       this.#acertou
     );
+  }
+  responderCom(indece: number) {
+    const acertou = this.#respostas[indece]?.certa;
+    const respostas = this.#respostas.map(
+      (resposta: RespostaModel, i: number) => {
+        const respostaSelecionada = indece == i;
+        const deveRevala = respostaSelecionada || resposta.certa;
+        return deveRevala ? resposta.revela() : resposta;
+      }
+    );
+
+    return new QuestaoModel(this.#id, this.#enunciado, respostas,acertou)
   }
   converterParaObjeto() {
     return {
