@@ -1,5 +1,6 @@
 
 import Questao from "./Components/questao";
+import Resposta from "./Components/Resposta";
 import QuestaoModel from "./model/questao";
 import RespostaModel from "./model/resposta";
 
@@ -14,7 +15,18 @@ export default function Home() {
   ])
   return (
 
-    <Questao enunciado = {questaoTeste}  /> 
+    <> 
+  
+    <Questao enunciado = {questaoTeste.enunciado}  /> 
+     {questaoTeste.respostas.map((res)=>{
+      return(
+
+      <Resposta valor={res.valor} />
+
+      )
+
+     } )}
+    </>
     
 
     
