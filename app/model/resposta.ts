@@ -33,6 +33,10 @@ export default class RespostaModel{
     get revelada(){
         return this.#revelada
     }
+
+    revela(){
+        return new RespostaModel(this.#valor, this.#certa, true)
+    }
     
 
     converterParaObjeto() {
