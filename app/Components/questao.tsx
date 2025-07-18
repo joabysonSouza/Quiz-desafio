@@ -2,17 +2,17 @@ import React from 'react'
 import QuestaoModel from '../model/questao'
 
 
-interface TypeProps {
-    enunciado : QuestaoModel
+interface enunciadoProps {
+    enunciado : string
 
 }
 
-const Questao = (enunciado: TypeProps) => {
+const Questao = ({enunciado}: enunciadoProps) => {
 
 
   return (
     <div>
-        <h1>Ola</h1>
+       questao: {enunciado}
       
     </div>
   )
