@@ -11,10 +11,15 @@ const Questao = ({enunciado}: enunciadoProps) => {
 
 
   return (
-    <div>
-       questao: {enunciado}
+
+    <div className='w-full flex justify-center items-center mt-4'>
+
+   
+    <p className='w-1/2 h-auto bg-blue-600 p-7 rounded-xl  flex justify-center '>
+      {enunciado} 
       
-    </div>
+    </p>
+     </div>
   )
 }
 
