@@ -11,16 +11,28 @@ export default function Home() {
     RespostaModel.errado("4 dedos"),
   ]);
 
+  const atributoLetra = [
+    {valor:"A" , cor:"#F2C866"},
+      {valor:"B" , cor:"#F266BA"},
+        {valor:"C" , cor:"#85D4F2"},
+          {valor:"D" , cor:"#BCE596"},
+  ]
+
   return (
     <>
       <Questao enunciado={questaoTeste.enunciado} />
-      {questaoTeste.respostas.map((res,i) => (
-   
-          <Resposta valor={res.valor}  key={i} letra="A" corLetra="#255057"/>
       
+      {questaoTeste.respostas.map((res, i) => (
+
+        <Resposta 
+        valor={res.valor}  
+        key={i} 
+        letra={atributoLetra[i].valor}
+         corLetra={atributoLetra[i].cor} />
+
       ))}
 
-      <h1>ola</h1>
+    
     </>
   );
 }
