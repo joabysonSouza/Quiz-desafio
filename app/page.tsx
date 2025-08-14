@@ -25,10 +25,12 @@ export default function Home() {
       {questaoTeste.respostas.map((res, i) => (
 
         <Resposta 
+        
         valor={res.valor}  
         key={i} 
         letra={atributoLetra[i].valor}
-         corLetra={atributoLetra[i].cor} />
+         corLetra={atributoLetra[i].cor} 
+         certa={res.certa}/>
 
       ))}
 
