@@ -1,9 +1,13 @@
+'use client'
+
+import { useState } from "react";
 import Questao from "./Components/questao";
 import Resposta from "./Components/Resposta";
 import QuestaoModel from "./model/questao";
 import RespostaModel from "./model/resposta";
 
 export default function Home() {
+
   const questaoTeste = new QuestaoModel(1, "Quantos dedos tem uma mão ?", [
     RespostaModel.errado("23 dedos"),
     RespostaModel.errado("2 dedos"),
@@ -18,6 +22,16 @@ export default function Home() {
           {valor:"D" , cor:"#BCE596"},
   ]
 
+
+  const [questao, setQuestao] = useState(questaoTeste)
+
+
+  const respostaFornecida = (indice: number)=>{
+    console.log(indice)
+    setQuestao(questao.responderCom(indice))
+
+  }
+
   return (
     <>
       <Questao enunciado={questaoTeste.enunciado} />
@@ -25,12 +39,16 @@ export default function Home() {
       {questaoTeste.respostas.map((res, i) => (
 
         <Resposta 
-        
+        respostaClicada={respostaFornecida}
+        indice={i}
         valor={res.valor}  
         key={i} 
         letra={atributoLetra[i].valor}
          corLetra={atributoLetra[i].cor} 
-         certa={res.certa}/>
+         certa={res.certa}
+         revelada ={res.revelada}
+
+         />
 
       ))}
 
