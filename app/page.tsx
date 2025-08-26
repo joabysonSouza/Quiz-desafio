@@ -5,6 +5,7 @@ import Questao from "./Components/questao";
 import Resposta from "./Components/Resposta";
 import QuestaoModel from "./model/questao";
 import RespostaModel from "./model/resposta";
+import Temporizador from "./Components/Temporizador";
 
 export default function Home() {
 
@@ -36,7 +37,7 @@ export default function Home() {
     <>
       <Questao enunciado={questaoTeste.enunciado} />
       
-      {questaoTeste.respostas.map((res, i) => (
+      {questao.respostas.map((res, i) => (
 
         <Resposta 
         respostaClicada={respostaFornecida}
@@ -51,6 +52,10 @@ export default function Home() {
          />
 
       ))}
+
+      <div>
+        <Temporizador />
+      </div>
 
     
     </>

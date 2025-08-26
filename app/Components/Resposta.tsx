@@ -14,11 +14,12 @@ interface RespostaProps {
 const Resposta = ({ valor, indice, letra, corLetra, certa, respostaClicada,revelada }: RespostaProps) => {
   return (
     <div className="flex p-5">
-      <div className="" onClick={()=> respostaClicada(indice)}>
+      <div className="" >
 
 
         {!revelada ? (
-          <div className=" flex p-2 bg-white rounded-lg">
+          
+          <div className=" flex p-2 bg-white rounded-lg" onClick={()=> respostaClicada(indice)}>
             {" "}
             {/*Frente do Card */}
             <div
@@ -32,46 +33,28 @@ const Resposta = ({ valor, indice, letra, corLetra, certa, respostaClicada,revel
               Resposta : {valor}
             </div>
           </div>
-           
-       
-       
      
         ):(
-          <div className=" w-full p-3 bg-red-500 rounded-lg">
-            {" "}
-            {/*atras do card*/}
-            sua resposta esta errada
+          <div>
+            {certa ? (
+   <div className="bg-green-500 text-white p-3 rounded-lg">
+    ✅ A resposta  certa
+  </div>
+) : (
+  <div className="bg-red-500 text-white p-3 rounded-lg">
+    ❌ Sua resposta está errada
+  </div>
+)}
+
           </div>
+       
+  )}
 
+   
 
+  </div>
+  </div>
+  )}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
-
-
-        ) }
-          
-        </div>
-
-          
-         
-    </div>
-  );
-};
 
 export default Resposta;
