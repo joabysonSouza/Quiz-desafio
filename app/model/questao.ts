@@ -52,6 +52,11 @@ export default class QuestaoModel {
     );
   }
   responderCom(indece: number) {
+    if (indece === -1) {
+    // tempo esgotado: revela todas as respostas
+    const respostas = this.#respostas.map(resposta => resposta.revela());
+    return new QuestaoModel(this.#id, this.#enunciado, respostas, false);
+  }
     const acertou = this.#respostas[indece]?.certa;
     const respostas = this.#respostas.map(
       (resposta: RespostaModel, i: number) => {
